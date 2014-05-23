@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock title %}</title>
+	<link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-datepicker.css"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.min.css"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-fileupload.min.css"/>
+	{% block header_extra %}
+	{% endblock header_extra %}
+</head>
+<body>
+	{% csrf_token %}
+	{% block content %}
+	{% endblock content%}
+	<script src="{{ STATIC_URL }}lib/jquery/jquery-1.9.1.min.js"></script>
+	<script src="{{ STATIC_URL }}lib/bootstrap/bootstrap.min.js"></script>
+	<script src="{{ STATIC_URL }}lib/bootstrap/bootstrap-datepicker.js"></script>
+	<script src="{{ STATIC_URL }}lib/bootstrap/bootstrap-fileupload.min.js"></script>
+	{% block footer %}
+	{% endblock footer %}
+</body>
+</html>

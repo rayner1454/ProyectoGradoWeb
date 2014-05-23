@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistema Solar</title>
+    <link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/sistema.css" />
+  </head>
+  <body>
+    <h1>MOVIMIENTO DE TRASLACION</h1>
+     <a href="/menu/" title="Atras">Volver</a>
+    <div class="container">
+
+      <button style="display:none;" type="button" class="js-toggle-video">Cerrar Video</button>
+      <button type="button" class="js-allow-video">Ver Video</button>
+      <br/>
+      <video style="display:none;" id="js-video" width="320" height="240"></video>
+      <canvas style="display:none;" id="js-snapshot" class="css-snapshot" width="320" height="240"></canvas>
+      <img style="display:none;" class="css-pointer" id="js-pointer" src="{{ STATIC_URL }}img/tierra.jpg"/>
+    </div>
+    <!-- Now let's get the input going into the webcam feed-->
+   <script src="{{ STATIC_URL }}lib/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/sistema_solar.js"></script>
+  </body>
+</html>

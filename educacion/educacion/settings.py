@@ -160,6 +160,11 @@ INSTALLED_APPS = (
     #Agregamos la libreria de thumbnail para probar como funciona
     'sorl.thumbnail',
 )
+from django.core.urlresolvers import reverse_lazy
+LOGIN_URL =reverse_lazy('login')
+LOGIN_REDIRECT_URL=reverse_lazy('menu')
+LOGOUT_URL=reverse_lazy('logout')
+
 # La siguiente linea de ocdigo es importante para poder agregar el Dashboard de Grappelli
 
 GRAPPELLI_INDEX_DASHBOARD = 'educacion.dashboard.CustomIndexDashboard'

@@ -14,3 +14,4 @@ Para poder ejecutar el proyecto ingresamos dentro de la carpeta de educacion ojo
          > cd educacion
          > python manage.py
 
+Ir al navegador preferemente Google Chrome y ejecutar escribir http://127.0.0.1:8000/

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es" ng-app="educacion">
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock title %}</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/stilos.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-datepicker.css"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.min.css"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-fileupload.min.css"/>
+	{% block header_extra %}
+	{% endblock header_extra %}
+</head>
+<body ng-controller="ListaController">
+	{% csrf_token %}
+	{% block content %}
+	{% endblock content%}
+	{% block footer %}
+
+<script src="{{ STATIC_URL }}lib/angular/angular.min.js"></script>
+<script src="{{ STATIC_URL }}lib/angular/angular-resource.min.js"></script>
+<script src="{{ STATIC_URL }}lib/angular-strap/angular-strap.min.js"></script>
+<script src="{{ STATIC_URL }}lib/underscore/underscore-min.js"></script>
+<script src="{{ STATIC_URL }}lib/angular/angular-cookies.min.js"></script>
+<script src="{{ STATIC_URL }}lib/restangular/restangular.min.js"></script>
+<script src="{{ STATIC_URL }}lib/momentjs/moment.min.js"></script>
+<script src="{{ STATIC_URL }}lib/ng-upload/ng-upload.min.js"></script>
+<script src="{{ STATIC_URL }}lib/jquery-upload/angular-file-upload.min.js"></script>
+<script src="{{ STATIC_URL }}lib/ng-infinite-scroll.min.js"></script>
+<script src="{{ STATIC_URL }}js/app.js"></script>
+<script src="{{ STATIC_URL }}js/routes.js"></script> 
+<script src="{{ STATIC_URL }}js/controllers/app-controller.js"></script>
+<script src="{{ STATIC_URL }}js/services/user.js"></script>     
+	<script src="{{ STATIC_URL }}lib/jquery/jquery-1.9.1.min.js"></script>
+	<script src="{{ STATIC_URL }}lib/bootstrap/bootstrap.min.js"></script>
+	<script src="{{ STATIC_URL }}lib/bootstrap/bootstrap-datepicker.js"></script>
+	<script src="{{ STATIC_URL }}lib/bootstrap/bootstrap-fileupload.min.js"></script>
+	{% endblock footer %}
+</body>
+</html>

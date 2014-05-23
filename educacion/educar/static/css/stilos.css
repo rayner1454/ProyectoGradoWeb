@@ -1,0 +1,137 @@
+body{
+	background-color: #87CEEB;
+}
+#contenido{
+	background-color: #FFF;
+	border-radius: 0.5em;
+	margin: 0;
+	padding: 0;
+	width: 90%;
+	margin-left: 5%;
+}
+#contenido img{
+	padding: 2.5%;
+	width: 30%;
+}/*
+nav ul{
+	list-style: none;
+}
+
+nav li {
+	display: inline-block;
+	padding: 0.5em;
+	vertical-align: top;
+
+}
+
+nav a {
+	background: #FFF;
+	border: 0.1em solid #57ABB8;
+	border-radius: 0.25em;
+	color: #F60;
+	display: block;
+	font-family: "armalite_rifleregular", Helvetica, Verdana;
+	font-size: 1.4em;
+	padding: 0.2em;
+	-ms-transition: all 0.5s ease-in;
+	-moz-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
+	-webkit-transition: all 0.5s ease-in;
+	transition: all 0.5s ease-in;
+	text-decoration: none;
+}
+nav a:hover{
+	background: #212121;
+	border: 0.1em dashed #F60;
+	border-radius: 0 0.5em 0 0.5em;
+	color: #FFF;
+	-ms-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+
+}*/
+#contenido img{
+	margin: 0 auto;
+	margin-left: 35%;
+}
+#contenido img, nav{
+	/*display: inline-block;*/
+	max-width: 100%;
+	vertical-align: bottom;
+}
+#contenido h1{
+	text-align: center;
+	color: #F60;
+	text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+}
+.content .form-inline{
+	/*border:0.1em solid #000;*/
+	border-radius: 1em; 
+	background-color: #eee;
+	margin-left: 25%;
+	padding: 5%;
+	width: 40%;
+}
+.content h4{
+	color: #000;
+	/*text-align: center;*/
+	border-bottom: 0.1em solid #333;
+}
+.footer{
+	width:98%;
+	text-align: center;
+	padding: 1%;
+	/*border-top: 0.1em solid #686868;*/
+}
+
+/*CSS for Menu Page*/
+
+.opciones{
+	width: 95%;
+	border: 0.5em solid #333;
+    margin: 2.5%;
+    border-radius: 2em;
+}
+
+.opciones ul{
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+
+
+}
+.opciones ul li{
+	width: 26.45%;
+	display: inline-block;
+	border-right: 0.5em solid #333;
+	margin: 0;
+	padding: 3%;
+	/*padding-left: 5.05%;*/
+	padding-top: 5%;
+}
+#contenido .opciones ul li img{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	vertical-align: center;
+}
+#contenido .opciones ul li h5{
+	padding-top:5%;
+	width: 100%;
+	text-align: center;
+	color: #FFA500;
+	font-size: 1.5em;
+
+}
+#contenido .opciones ul li a:hover{
+	color: #FFF;
+	-ms-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+
+}
