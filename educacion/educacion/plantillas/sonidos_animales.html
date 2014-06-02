@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sonido de Animales</title>
+	<link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/sonidos_animales.css"/>
+</head>
+<body>
+<div class="fondo">
+<div id="message">Cargando...</div>
+<div id="info" style="display:none">
+		<p>Por Favor habilite la Camara Web de su navegador flag en about:flags.</p>
+	<img src="{{ STATIC_URL }}img/mediastream.png"/>
+</div>
+
+<!--<device type="media"></device>-->
+<video id="webcam" autoplay width="640" height="480"></video>
+
+<video id="video-demo" controls="controls" poster="{{ STATIC_URL }}videos/jsdetection.jpg" width="640" height="480"  onclick="if(/Android/.test(navigator.userAgent))this.play();">
+	<source src="{{ STATIC_URL }}videos/jsdetection.mp4" type="video/mp4" />
+	<source src="{{ STATIC_URL }}videos/jsdetection.ogv" type="video/ogg" />
+	<source src="{{ STATIC_URL }}videos/jsdetection.webm" type="video/webm" />
+	Tu navegador no soporta el tag de video de HTML5
+</video>
+
+<canvas id="canvas-source" width="640" height="480"></canvas>
+<canvas id="canvas-blended" width="640" height="480"></canvas>
+
+<div id="xylo">
+	<div id="back"><img id="xyloback" src="{{ STATIC_URL }}img/xylo.png"/></div>
+	<div id="front">
+		<img id="note0" src="{{ STATIC_URL }}img/note1.png"/>
+		<img id="note1" src="{{ STATIC_URL }}img/note2.png"/>
+		<img id="note2" src="{{ STATIC_URL }}img/note3.png"/>
+		<img id="note3" src="{{ STATIC_URL }}img/note4.png"/>
+		<img id="note4" src="{{ STATIC_URL }}img/note5.png"/>
+		<img id="note5" src="{{ STATIC_URL }}img/note6.png"/>
+		<img id="note6" src="{{ STATIC_URL }}img/note7.png"/>
+		<img id="note7" src="{{ STATIC_URL }}img/note8.png"/>
+	</div>
+</div>
+	
+</div>
+
+
+<script src="{{ STATIC_URL }}lib/jquery.js"></script>
+<script src="{{ STATIC_URL }}lib/buffer-loader.js"></script>
+<script src="{{ STATIC_URL }}js/sonidos.js"></script>
+
+</body>
+</html>

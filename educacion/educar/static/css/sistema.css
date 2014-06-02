@@ -14,8 +14,8 @@ h1{
 }
 .css-pointer {
 	position: fixed;
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
 	opacity: 0.8;
 }
 .css-snapshot-container {

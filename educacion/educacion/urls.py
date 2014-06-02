@@ -25,8 +25,18 @@ urlpatterns = patterns('',
     url(r'^cerrar/$','django.contrib.auth.views.logout_then_login',name='logout'),
     url(r'^menu/$','django.contrib.auth.views.login',{'template_name':'menu.html'},name='menu'),
     url(r'^menu/temas/$','django.contrib.auth.views.login',{'template_name':'temas.html'},name='temas'),
-    url(r'^menu/temas/sistema/$','django.contrib.auth.views.login',{'template_name':'sistema.html'},name='sistema'),
-    url(r'^menu/temas/seres_vivos/$','django.contrib.auth.views.login',{'template_name':'seres_vivos.html'},name='seres_vivos'),
+    
+    url(r'^menu/temas/sistema/$','django.contrib.auth.views.login',{'template_name':'temas_sistema.html'},name='temas_sistema'),
+    url(r'^menu/temas/sistema/movimiento/$','django.contrib.auth.views.login',{'template_name':'sistema.html'},name='movimiento_tierra'),
+    url(r'^menu/temas/sistema/sistema_solar/$','django.contrib.auth.views.login',{'template_name':'sistema_solar.html'},name='sistema_solar'),
+    url(r'^menu/temas/sistema/libro_sistema/$','django.contrib.auth.views.login',{'template_name':'libro_sistema_solar.html'},name='libro_sistema_solar'),
+    
+    url(r'^menu/temas/seres_vivos/$','django.contrib.auth.views.login',{'template_name':'temas_seresvivos.html'},name='temas_seres'),
+    url(r'^menu/temas/seres_vivos/clasificacion/$','django.contrib.auth.views.login',{'template_name':'seres_vivos.html'},name='seres_vivos'),
+    url(r'^menu/temas/seres_vivos/sonidos/$','django.contrib.auth.views.login',{'template_name':'sonidos_animales.html'},name='sonidos_animales'),
+    url(r'^menu/temas/seres_vivos/libro_seres/$','django.contrib.auth.views.login',{'template_name':'libro_seres_vivos.html'},name='libro_sistema_solar'),
+    
+    url(r'^menu/temas/actividad/$','django.contrib.auth.views.login',{'template_name':'actividad.html'},name='actividad_complementaria'),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^api/v1.0/$',ProfesorList.as_view(),name='Lista-Profesores'),

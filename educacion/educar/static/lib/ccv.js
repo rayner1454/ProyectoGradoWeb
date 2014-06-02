@@ -82,8 +82,10 @@ var ccv = {
 			var canvas = document.createElement("canvas");
 			document.body.appendChild(image);
 			canvas.width = image.offsetWidth;
+			console.log(canvas.width);
 			canvas.style.width = image.offsetWidth.toString() + "px";
 			canvas.height = image.offsetHeight;
+			console.log(canvas.height);
 			canvas.style.height = image.offsetHeight.toString() + "px";
 			document.body.removeChild(image);
 			var ctx = canvas.getContext("2d");

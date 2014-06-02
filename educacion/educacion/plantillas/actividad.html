@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Actividad Complementaria</title>      
+        <link href="{{ STATIC_URL }}css/extraactivity.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="{{ STATIC_URL }}lib/videotracker.js"></script>
+        <!-- initialization -->
+        <script type="text/javascript">
+            initialize = function() {
+                video2track = document.getElementById("video2track");
+                getUserMedia();
+
+                var blackboard = document.getElementById("blackboard").getContext('2d');
+                blackboard.strokeStyle = "rgb(0,0,0)";
+                blackboard.lineWidth = 1;
+                blackboard.lineJoin = 'round';
+                blackboard.lineCap = 'round';  
+                blackboard.beginPath();
+                var movement = 0;
+                onMoveFunc = function(x,y){
+                    console.log(x);
+                    console.log(y);
+                     
+
+                    /* blackboard.lineTo(x, y);
+                        blackboard.stroke();
+                        blackboard.moveTo(x, y);*/
+                         
+                        
+                    
+                    if(movement<2){
+                        blackboard.moveTo(x, y);
+                        movement++;
+                    } else {
+                        blackboard.lineTo(x, y);
+                        blackboard.closePath();
+                        blackboard.stroke();
+                        blackboard.moveTo(x, y);
+                    }
+                    console.log(movement);
+                };
+                
+               /* var videotracker = new VideoTracker({video_target_id: 'video2track', color_to_track: '#000', min_speed:0x75, tracker_size:30});*/
+                var videotracker = new VideoTracker({video_target_id: 'video2track'});
+                if (hasGetUserMedia()) {
+                    document.getElementById("no-has-user-media").style.display = 'none';
+                    videotracker.opts.inverted = true;
+                } else {
+                    document.getElementById("no-has-user-media").style.display = 'block';
+                }
+                videotracker.setOnMoveFunc(onMoveFunc);
+                
+                videotracker.start();
+            };
+            
+            function hasGetUserMedia() {
+                return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia || navigator.msGetUserMedia);
+            }
+            
+            getUserMedia = function() {
+                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+                if (navigator.getUserMedia) {
+                    navigator.getUserMedia({video: true}, 
+                                           function(stream) {
+                                               if (navigator.webkitGetUserMedia) {
+                                                   video2track.src = window.webkitURL.createObjectURL(stream);
+                                               } else {
+                                                   video2track.src = stream; // Opera
+                                               }
+                                           }, 
+                                           function(error) {
+                                               alert("No puede accederse a la Camara Web. Por Favor habilite");
+                                           }
+                                          );
+                } else {
+                    video2track.loop=true;  
+                }
+            }
+        </script>
+    </head>
+    <body onLoad="initialize();">
+           <div id="no-has-user-media" style="display:none">
+            <p>Usadno recursos de Video. Por Favor habilite "Media Stream" flag de su navegador.</p> 
+        </div>
+        <div style="float:left;">
+            <div style="width:330px; height:250px">
+                <video id="video2track"  width="320" height="240" autoplay="autoplay" style="z-index:9999;">
+                    <source src="video-demo.ogv" type="video/ogg" />
+                </video>
+            </div>
+        </div>
+        <div  class="inverted">
+            <canvas id='blackboard'/>
+        </div>
+    </body>
+</html>

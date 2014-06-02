@@ -7,7 +7,7 @@
 		<script src="{{ STATIC_URL }}lib/jquery/jquery-1.9.1.min.js"></script>
 	</head>
 	<body>
-		<a href="/menu/" title="Atras">Volver</a>
+		<a href="/menu/" title="Atras"><---Volver</a>
 		<p id="info">Por Favor encienda la Cámara</p>
 		<canvas id="camara"></canvas>
 		<script src="{{ STATIC_URL }}lib/ccv.js"></script>
@@ -15,7 +15,46 @@
 		<script src="{{ STATIC_URL }}js/seguimiento.js"></script>
 		<section id="personalizacion">
 			<article id="imagen">
-				<h2>Escoge una Imagen:</h2>
+				<h2>Escoge una Imagen del Hombre:</h2>
+				<figure id="lentes">
+					<img src="{{ STATIC_URL }}img/lentes.png" alt="">
+					<figcaption>Lentes</figcaption>
+				</figure>
+				<figure id="craneo2">
+					<img src="{{ STATIC_URL }}img/craneo2.png" alt="">
+					<figcaption>Esqueleto</figcaption>
+				</figure>
+				<figure id="musculos">
+					<img src="{{ STATIC_URL }}img/musculos.png" alt="">
+				     <figcaption>Musculos</figcaption>
+				</figure>
+			</article>
+		</section>
+		<section id="personalizacion">
+			<article id="imagen">
+				<h2>Escoge una Imagen de Animales:</h2>
+				<figure id="buho">
+					<img src="{{ STATIC_URL }}img/buho.png" alt="">
+					<figcaption>Buho</figcaption>					
+				</figure>
+				<figure id="oso">
+					<img src="{{ STATIC_URL }}img/oso.png" alt="">
+					<figcaption>Oso</figcaption>	
+				</figure>
+				<figure id="tigre">
+					<img src="{{ STATIC_URL }}img/tigre.png" alt="">
+					<figcaption>Tigre</figcaption>					
+				</figure>
+				<figure id="leon">
+					<img src="{{ STATIC_URL }}img/leon.png" alt="">
+					<figcaption>Leon</figcaption>
+					
+				</figure>
+			</article>
+		</section>
+		<section id="personalizacion">
+			<article id="imagen">
+				<h2>Escoge una Imagen de Plantas:</h2>
 				<figure id="lentes">
 					<img src="{{ STATIC_URL }}img/lentes.png" alt="">
 					<figcaption>Lentes</figcaption>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sistema Solar</title>
+        <link rel="icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon"/>      
+        <link href="{{ STATIC_URL }}css/extraactivity.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="{{ STATIC_URL }}lib/videotracker.js"></script>
+        <!-- initialization -->
+        <script type="text/javascript">
+            initialize = function() {
+                if (hasGetUserMedia()) {
+                    document.getElementById("no-has-user-media").style.display = 'none';
+                } else {
+                    document.getElementById("no-has-user-media").style.display = 'block';
+                }
+                video2track = document.getElementById("video2track");
+                getUserMedia();
+                
+                onMoveFunc = function(x,y){
+                    if(document.getElementById("scrollx").checked)
+                        document.getElementById("lorem").scrollLeft=x;
+                    if(document.getElementById("scrolly").checked)
+                        document.getElementById("lorem").scrollTop=y;
+                };
+                
+                var videotracker = new VideoTracker({video_target_id: 'video2track'});
+                videotracker.setOnMoveFunc(onMoveFunc);
+                videotracker.start();
+            };
+            
+            function hasGetUserMedia() {
+                return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia || navigator.msGetUserMedia);
+            }
+            
+            getUserMedia = function() {
+                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+                if (navigator.getUserMedia) {
+                    navigator.getUserMedia({video: true}, 
+                                           function(stream) {
+                                               if (navigator.webkitGetUserMedia) {
+                                                   video2track.src = window.webkitURL.createObjectURL(stream);
+                                               } else {
+                                                   video2track.src = stream; // Opera
+                                               }
+                                           }, 
+                                           function(error) {
+                                               alert("Failed to get access to local media. Please enable Media Stream in chome://flags.");
+                                           }
+                                          );
+                } else {
+                    video2track.loop=true;  
+                }
+            }
+        </script>
+    </head>
+    <body onLoad="initialize();">
+           <div id="no-has-user-media" style="display:none">
+            <p>Usando recursos de Video. Por Favor habilite "Media Stream" flag de su navegador.</p> 
+        </div>
+        <div style="float:left;">
+            <div style="width:330px; height:250px">
+                <video id="video2track"  width="320" height="240" autoplay="autoplay" style="z-index:9999;">
+                    <source src="video-demo.ogv" type="video/ogg" />
+                </video>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow" id="left" width="100" height="100">
+                    <path d="M 48 42 L 32 42  L 32 58  L 48 58 L 48 68 L 70 50 L 48 32" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow" id="right" width="100" height="100">
+                    <path d="M 48 42 L 32 42  L 32 58 L 48 58 L 48 68 L 70 50 L 48 32" transform = "rotate(180 50 50)"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow" id="up" width="100" height="100">
+                    <path d="M 48 42 L 32 42  L 32 58 L 48 58 L 48 68 L 70 50 L 48 32"  transform = "rotate(270 50 50)" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow" id="down" width="100" height="100">
+                    <path d="M 48 42 L 32 42  L 32 58 L 48 58 L 48 68 L 70 50 L 48 32" transform = "rotate(90 50 50)"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="info" width="200" height="30">
+                    <text x="0" y="10">Click sobre un objecto para trackear</text>
+                </svg>
+            </div>
+            <div>
+                <input id="scrollx" type="checkbox" checked="checked" />Scroll X<br />
+                <input id="scrolly" type="checkbox" checked="checked" />Scroll Y
+            </div>
+        </div>
+        <div  id="lorem" style="width: 100%;  overflow: auto">
+            <img id="lorem" src="{{ STATIC_URL }}img/planetas.jpg" alt="Planetas" width='150%' >
+            <!--canvas id='blackboard'/-->
+                  <!--div style="float:left">
+            <textarea id='lorem' cols=60 rows=30 wrap='off'>
+                Lorem ipsum ad his scripta blandit partiendo, 
+                eum fastidii accumsan euripidis in, eum liber hendrerit an.
+                Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint 
+                id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos.
+                Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, 
+                eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. 
+                Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit 
+                volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu.
+                No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata,
+                usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te. 
+                Ne quodsi nusquam legendos has, ea dicit voluptua eloquentiam pro, ad sit quas qualisque. 
+                Eos vocibus deserunt quaestio ei. Blandit incorrupte quaerendum in quo, nibh impedit id vis, 
+                vel no nullam semper audiam. Ei populo graeci consulatu mei, has ea stet modus phaedrum. 
+                Inani oblique ne has, duo et veritus detraxit. Tota ludus oratio ea mel, offendit persequeris 
+                ei vim. Eos dicat oratio partem ut, id cum ignota senserit intellegat. Sit inani ubique graecis 
+                ad, quando graecis liberavisse et cum, dicit option eruditi at duo. Homero salutatus 
+                suscipiantur eum id, tamquam voluptaria expetendis ad sed, nobis feugiat similique usu ex. 
+                Eum hinc argumentum te, no sit percipit adversarium, ne qui feugiat persecuti. 
+                Odio omnes scripserit ad est, ut vidit lorem maiestatis his, putent mandamus gloriatur ne pro.
+                Oratio iriure rationibus ne his, ad est corrumpit splendide. Ad duo appareat moderatius, 
+                ei falli tollit denique eos. Dicant evertitur mei in, ne his deserunt perpetua sententiae, 
+                ea sea omnes similique vituperatoribus. Ex mel errem intellegebat comprehensam, vel ad tantas 
+                antiopam delicatissimi, tota ferri affert eu nec. Legere expetenda pertinacia ne pro, et 
+                pro impetus persius assueverit. Ea mei nullam facete, omnis oratio offendit ius cu. Doming
+                takimata repudiandae usu an, mei dicant takimata id, pri eleifend inimicus euripidis at. 
+                His vero singulis ea, quem euripidis abhorreant mei ut, et populo iriure vix. 
+                Usu ludus affert voluptaria ei, vix ea error definitiones, movet fastidii signiferumque in qui.
+                Vis prodesset adolescens adipiscing te, usu mazim perfecto recteque at, assum putant erroribus 
+                mea in. Vel facete imperdiet id, cum an libris luptatum perfecto, vel fabellas inciderint ut. 
+                Veri facete debitis ea vis, ut eos oratio erroribus. Sint facete perfecto no vel, 
+                vim id omnium insolens. Vel dolores perfecto pertinacia ut, te mel meis ullum dicam, 
+                eos assum facilis corpora in. Mea te unum viderer dolores, nostrum detracto nec in, 
+                vis no partem definiebas constituam. Dicant utinam philosophia has cu, hendrerit prodesset 
+                at nam, eos an bonorum dissentiet. Has ad placerat intellegam consectetuer, no adipisci 
+                mandamus senserit pro, torquatos similique percipitur est ex. Pro ex putant deleniti repudiare,
+                vel an aperiam sensibus suavitate. Ad vel epicurei convenire, ea soluta aliquid deserunt ius, 
+                pri in errem putant feugiat. Sed iusto nihil populo an, ex pro novum homero cotidieque. 
+                Te utamur civibus eleifend qui, nam ei brute doming concludaturque, 
+                modo aliquam facilisi nec no. Vidisse maiestatis constituam eu his, esse pertinacia intellegam
+                ius cu. Eos ei odio veniam, eu sumo altera adipisci eam, mea audiam prodesset persequeris ea. 
+                Ad vitae dictas vituperata sed, eum posse labore postulant id. Te eligendi principes dignissim 
+                sit, te vel dicant officiis repudiandae. Id vel sensibus honestatis omittantur, vel cu nobis 
+                commune patrioque. In accusata definiebas qui, id tale malorum dolorem sed, solum clita 
+                phaedrum ne his. Eos mutat ullum forensibus ex, wisi perfecto urbanitas cu eam, no vis dicunt 
+                impetus. Assum novum in pri, vix an suavitate moderatius, id has reformidans referrentur. 
+                Elit inciderint omittantur duo ut, dicit democritum signiferumque eu est, ad suscipit delectus
+                mandamus duo. An harum equidem maiestatis nec. At has veri feugait placerat, 
+                in semper offendit praesent his. Omnium impetus facilis sed at, ex viris tincidunt ius. 
+                Unum eirmod dignissim id quo. Sit te atomorum quaerendum neglegentur, his primis tamquam et. 
+                Eu quo quot veri alienum, ea eos nullam luptatum accusamus. Ea mel causae phaedrum reprimique, 
+                at vidisse dolores ocurreret nam.">
+            </textarea>
+        </div-->
+        </div>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+
+{% block title %}
+Proyecto de Grado -Menu
+{% endblock title %}
+{% load staticfiles %}
+{% block content %}
+
+    <section id="contenido">
+    <img src="{{ STATIC_URL }}img/fondo.jpg" alt="Logo">
+		
+<h1>SISTEMA EDUCATIVO CLASS DOJO</h1>   
+
+    <div class="container">
+    <ng-view viewstate></ng-view><br><br>
+     <div class="content">
+        {% if user.is_authenticated %}
+         <a type="submit" href="/cerrar/"class="btn btn-block btn-large  btn-primary">Salir</a>
+
+     <h2>Selecciona una Opcion:</h2>
+ <div class="opciones">
+  <ul>
+    <li><a href="/menu/temas/sistema/sistema_solar/" title=""><img src="{{ STATIC_URL }}img/sistema.jpg" alt="Material Educativo" class="img-circle"><h5>Sistema Solar</h5></a></li>
+    <li><a href="/menu/temas/sistema/movimiento/" title=""><img src="{{ STATIC_URL }}img/tierra.jpg" alt="Enseñar con Realidad Aumentada" class="img-circle"><h5>Movimiento de la Tierra</h5></a></li>
+    <li><a href="/menu/temas/sistema/libro_sistema/" title=""><img src="{{ STATIC_URL }}img/librito.jpg" alt="Calificaciones" class="img-circle"><h5>Libro Interactivo</h5></a></li>
+    <li><a href="/menu/temas/actividad/" title=""><img src="{{ STATIC_URL }}img/calificaciones.jpg" alt="Calificaciones" class="img-circle"><h5>Actvidad Complementaria</h5></a></li>
+  </ul>
+         
+</div>                  
+
+<br>
+<br><br>
+<div class="footer">
+    <p>Copyright © 2014  Proyecto de Grado Derechos Reservador Diseñado por Rayner Villalba</p>
+</div>
+{% else %}
+<h1>Por Favor ingrese al sistema</h1>
+<a type="submit" class="btn btn-block btn-large  btn-primary" href="/cerrar/">VOLVER</a>
+{% endif %}
+</section>
+{% endblock content %}
